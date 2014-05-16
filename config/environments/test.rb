@@ -1,4 +1,7 @@
 Rails.application.configure do
+  # bcrypt'のコスト関数を下げることでテストの速度を向上させる。
+  ActiveModel::SecurePassword.min_cost = true
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # The test environment is used exclusively to run your application's
