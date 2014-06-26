@@ -6,6 +6,9 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def chat
+  end
+
   def help
   end
 

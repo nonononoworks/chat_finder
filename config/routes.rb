@@ -12,8 +12,7 @@ Rails.application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/help',    to: 'static_pages#help',    via: 'get'
-  match '/send',    to: 'static_pages#send',    via: 'get'
-  match '/receive', to: 'static_pages#receive', via: 'get'
+  match '/chat',    to: 'static_pages#chat',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
 

@@ -250,7 +250,7 @@ aside {
 .connection {
   float: left;
   height: 250px;
-  width: 200px;
+  width: 100%;
   overflow: scroll;
   background-color: #fff;
   padding: 10px;
@@ -278,10 +278,6 @@ h1 {
   font-style: italic;
 }
 #wrap {
-  background-color: #ddd;
-  border-width: 1px 0;
-  border-color: #ccc;
-  border-style: solid;
 }
 .clear {
   clear: both;
