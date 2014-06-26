@@ -1,9 +1,13 @@
 
 <script>
-    var selfId = "1111122222";
-    var againstId = "2222211111";
+    var selfId;
+    var againstId;
     var conn;
     var peer = new Peer(selfId, {key: 'nra757eqn3njnhfr'});
+	peer.on('open', function(id) {
+	  console.log('My peer ID is: ' + id);
+	  selfId = id
+	});
     function connect(c) {
         conn = c;
         conn.on('data', function(data){
@@ -15,7 +19,8 @@
         document.getElementById("receive_message").innerHTML += selfId + ":" + document.getElementById("message").value + "<br />";
         conn.send(document.getElementById("message").value);
 	}
-    function onBodyLoad(){
+    function getConnection(){
+		againstId = $("#against").val();
         var c = peer.connect(againstId, {serialization: 'binary-utf8'});
         c.on('open', function(){
           connect(c);
@@ -23,13 +28,8 @@
     }
 </script>
 
-<script data-turbolinks-eval="false">
-	$(document).on('page:change', function(e) {
-		onBodyLoad();
-	});
-</script>
-
 <div>
+    <input type="text" id="against" value=""><input type="button" onClick="getConnection();" value="send" />
     <input type="text" id="message"><input type="button" onClick="sendMessage();" value="send" />
     <div id="receive_message"></div>
 </div>
