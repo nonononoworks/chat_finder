@@ -1,13 +1,10 @@
 
 <script>
-    var selfId;
+    var selfId = "lovelive1";
     var againstId;
     var conn;
     var peer = new Peer(selfId, {key: 'nra757eqn3njnhfr'});
-	peer.on('open', function(id) {
-	  console.log('My peer ID is: ' + id);
-	  selfId = id
-	});
+
     function connect(c) {
         conn = c;
         conn.on('data', function(data){
@@ -24,6 +21,7 @@
         var c = peer.connect(againstId, {serialization: 'binary-utf8'});
         c.on('open', function(){
           connect(c);
+			alert("connected");
         });
     }
 </script>

@@ -1,13 +1,10 @@
 <script>
-    var selfId;
+    var selfId = "lovelive2";
     var againstId;
     var conn;
     var peer = new Peer(selfId, {key: 'nra757eqn3njnhfr'});
     peer.on('connection', connect);
-	peer.on('open', function(id) {
-	  console.log('My peer ID is: ' + id);
-	  selfId = id
-	});
+
     function connect(c) {
         conn = c;
         conn.on('data', function(data){
