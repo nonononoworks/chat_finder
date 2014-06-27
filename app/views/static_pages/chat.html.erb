@@ -1,4 +1,8 @@
 <script>
+  navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+  var myStream;
+
 // Connect to PeerJS, have server assign an ID instead of providing one
 // Showing off some of the configs available with PeerJS :).
 var peer = new Peer({
@@ -22,6 +26,15 @@ var peer = new Peer({
 });
 var connectedPeers = {};
 
+  var setOthersStream = function(stream){
+    $('#others-video').prop('src', URL.createObjectURL(stream));
+  };
+
+  var setMyStream = function(stream){
+    myStream = stream;
+    $('#video').prop('src', URL.createObjectURL(stream));
+  };
+
 // Show this peer's ID.
 peer.on('open', function(id){
   $('#pid').text(id);
@@ -29,6 +42,11 @@ peer.on('open', function(id){
 
 // Await connections from others
 peer.on('connection', connect);
+
+  peer.on('call', function(call){
+    call.answer(myStream);
+    call.on('stream', setOthersStream);
+  });
 
 // Handle a connection object.
 function connect(c) {
@@ -83,8 +101,12 @@ $(document).ready(function() {
     e.stopPropagation();
   }
 
+  navigator.getUserMedia({audio: true, video: true}, setMyStream, function(){});
+
   // Connect to a peer
   $('#connect').click(function() {
+      var call = peer.call($('#others-peer-id').val(), myStream);
+      call.on('stream', setOthersStream);
     requestedPeer = $('#rid').val();
     if (!connectedPeers[requestedPeer]) {
       // Create 2 connections, one labelled chat and another labelled file.
@@ -166,6 +188,9 @@ window.onunload = window.onbeforeunload = function(e) {
   <div id="actions">
     Your PeerJS ID is <span id="pid">x6mpbvzmsz41jor</span><br>
     Connect to a peer: <input type="text" id="rid" placeholder="Someone else&#39;s id"><input class="button" type="button" value="Connect" id="connect"><br><br>
+
+  <video id="video" autoplay muted></video>
+  <video id="others-video" autoplay></video>
 
     <form id="send">
       <input type="text" id="text" placeholder="Enter message"><input class="button" type="submit" value="Send to selected peers">
