@@ -4,16 +4,21 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+
+  resources :conversations do
+    resources :messages
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
+  resources :messages, only: [:index, :create]
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/video',   to: 'static_pages#video',   via: 'get'
-  match '/chat',    to: 'static_pages#chat',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
 

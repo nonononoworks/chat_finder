@@ -11,10 +11,20 @@ gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
 
+# For real time chat
+gem 'websocket-rails'
+gem 'pusher'
+
 # test fails without this
 gem 'minitest'
+
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
+
+# User Management
+gem 'devise'
+
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '2.13.1'

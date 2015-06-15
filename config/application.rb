@@ -28,6 +28,6 @@ module SampleApp
     # config.i18n.default_locale = :de
 
 	# Added by nononono
-	config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+	config.assets.precompile += %w(*.js *.png *.jpg *.jpeg *.gif)
   end
 end

@@ -5,4 +5,8 @@
     | <%= link_to "delete", user, method: :delete,
                                   data: { confirm: "You sure?" } %>
   <% end %>
+  <a>
+  <%= link_to "Send Message", "#", class: "btn btn-success btn-xs start-conversation",
+              "data-sid" => current_user.id, "data-rip" => user.id %>
+  </a>
 </li>

@@ -1,0 +1,29 @@
+<div id='messagelog'></div>
+
+<script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	// Enable pusher logging - don't include this in production
+	Pusher.log = function(message) {
+		if (window.console && window.console.log) {
+		window.console.log(message);
+		}
+	};
+
+	var pusher = new Pusher('e7d1b74dd30352eddd81');
+	var channel = pusher.subscribe('general_channel');
+	channel.bind('chat_event', function(data) {
+	var messagelog = document.getElementById('messagelog');
+	var messagediv = document.createElement('div');
+	messagediv.innerHTML = data.message;
+	messagelog.appendChild(messagediv);
+	});
+</script>
+
+
+<% provide(:title, 'message') %>
+
+<%= form_tag('/messages', :action => 'create', :remote => true) do %>
+<%= text_field_tag 'message' %>
+<%= submit_tag 'send' %>
+<% end %>
+
