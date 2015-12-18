@@ -8,7 +8,6 @@ var ready = function () {
  
     $('.start-conversation').click(function (e) {
         e.preventDefault();
- 
         var sender_id = $(this).data('sid');
         var recipient_id = $(this).data('rip');
  
