@@ -78,3 +78,5 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'ruby-debug-ide'
+gem 'debase','0.2.1'

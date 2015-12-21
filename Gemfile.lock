@@ -51,6 +51,9 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     daemons (1.2.2)
+    debase (0.2.1)
+      debase-ruby_core_source
+    debase-ruby_core_source (0.8.3)
     devise (3.5.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -146,6 +149,8 @@ GEM
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
+    ruby-debug-ide (0.6.0)
+      rake (>= 0.8.1)
     rubyzip (0.9.9)
     sass (3.2.19)
     sass-rails (4.0.3)
@@ -223,6 +228,7 @@ DEPENDENCIES
   bootstrap-will_paginate (= 0.0.9)
   capybara (= 2.1.0)
   coffee-rails (~> 4.0.0)
+  debase (= 0.2.1)
   devise
   factory_girl_rails (= 4.2.1)
   faker (= 1.1.2)
@@ -234,6 +240,7 @@ DEPENDENCIES
   rails (= 4.1.0)
   rails_12factor
   rspec-rails (= 2.13.1)
+  ruby-debug-ide
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   selenium-webdriver (= 2.35.1)
@@ -247,3 +254,6 @@ DEPENDENCIES
   underscore-string-rails
   websocket-rails
   will_paginate (= 3.0.4)
+
+BUNDLED WITH
+   1.11.2
