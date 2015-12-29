@@ -23,13 +23,6 @@ ActiveRecord::Schema.define(version: 20150616085707) do
   add_index "conversations", ["recipient_id"], name: "index_conversations_on_recipient_id"
   add_index "conversations", ["sender_id"], name: "index_conversations_on_sender_id"
 
-  create_table "message_data", force: true do |t|
-    t.string   "message"
-    t.string   "sender"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "messages", force: true do |t|
     t.text     "body"
     t.integer  "conversation_id"

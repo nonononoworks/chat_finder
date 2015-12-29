@@ -228,7 +228,7 @@ DEPENDENCIES
   bootstrap-will_paginate (= 0.0.9)
   capybara (= 2.1.0)
   coffee-rails (~> 4.0.0)
-  debase (= 0.2.1)
+  debase
   devise
   factory_girl_rails (= 4.2.1)
   faker (= 1.1.2)
