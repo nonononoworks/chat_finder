@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData">
+  <component name="PublishConfigData" serverName="global_mycentos">
     <serverData>
-      <paths name="Copy of project-level server 'mycentos'">
+      <paths name="Copy of project-level server 'global_mycentos'">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="global_mycentos">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="local_mycentos">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />

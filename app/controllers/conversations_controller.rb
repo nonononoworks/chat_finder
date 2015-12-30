@@ -8,8 +8,10 @@ class ConversationsController < ApplicationController
     else
       @conversation = Conversation.create!(conversation_params)
     end
- 
-    render json: { conversation_id: @conversation.id }
+    @reciever = interlocutor(@conversation)
+    @messages = @conversation.messages
+    @message = Message.new
+    render action: :show, layout: "application"
   end
  
   def show

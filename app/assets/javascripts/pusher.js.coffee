@@ -18,7 +18,13 @@ push_event = ->
       #var messagediv = document.createElement('div');
       #messagediv.innerHTML = data.message;
       #messagelog.appendChild(messagediv);
-        console.log data.message.body
+      path = '/conversations/' + data.message.conversation_id + '/messages'
+      sender_id = data.message.user_id
+      recipient_id = $("body").data("userid")
+      $.get path, {
+        message: data.message
+      }, (data) ->
+        alert("ok")
       return
     return
   else

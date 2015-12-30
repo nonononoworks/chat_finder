@@ -1,6 +1,6 @@
 
     var id = "<%= @conversation.id %>";
-    var chatbox = $("#chatbox_" + id + " .chatboxcontent");
+    var chatbox = $(".chatboxcontent");
     var sender_id = "<%= @message.user.id %>";
     var reciever_id = $('meta[name=user-id]').attr("content");
  

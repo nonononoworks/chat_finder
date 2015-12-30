@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update]
 
   def index
-    @users = User.paginate(page:params[:page])
+    @users = User.where.not(id: current_user.id).page(params[:page])
   end
 
   def show

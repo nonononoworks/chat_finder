@@ -18,6 +18,12 @@ class MessagesController < ApplicationController
       })
     end
   end
+
+  def index
+    @conversation = Conversation.find(params[:conversation_id])
+    @message = Message.find(params[:message]["id"])
+    render "create"
+  end
  
   private
  
