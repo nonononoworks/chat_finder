@@ -146,6 +146,8 @@ aside {
 
 .stats {
   overflow: auto;
+  margin-top: 0;
+  padding: 0;
   a {
     float: left;
     padding: 0 10px;
@@ -157,7 +159,7 @@ aside {
     }
     &:hover {
       text-decoration: none;
-      color: #0d90d1;
+      color: blue;
     }
   }
   strong {
@@ -171,6 +173,13 @@ aside {
   .gravatar {
     margin: 1px 1px;
   }
+  a {
+    padding: 0;
+  }
+}
+
+.users.follow {
+  padding: 0;
 }
 
 /* forms */

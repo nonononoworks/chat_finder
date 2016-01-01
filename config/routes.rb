@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
-devise_for :users, :controllers => {
-  :sessions => 'users/sessions'
-}
-resources :users, :only => [:index, :show]
+devise_for :users, :controllers => { :sessions => 'users/sessions'}
+resources :users, :only => [:index, :show] do
+  member do
+    get :following, :followers
+  end
+end
 
   resources :conversations do
     resources :messages

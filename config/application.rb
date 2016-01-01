@@ -29,5 +29,8 @@ module Chat
 
 	# Added by nononono
 	config.assets.precompile += %w(*.js *.png *.jpg *.jpeg *.gif)
+
+  # 認証トークンをremoteフォームに埋め込む
+  config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end
