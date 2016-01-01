@@ -1,8 +1,9 @@
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 /* mixins, variables, etc. */
 
-$grayMediumLight: #eaeaea;
+$gray-medium-light: #eaeaea;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -11,10 +12,7 @@ $grayMediumLight: #eaeaea;
 }
 
 /* universal */
-
-html {
-  overflow-y: scroll;
-}
+/* universal */
 
 body {
   padding-top: 60px;
@@ -34,8 +32,6 @@ textarea {
     margin-bottom: 10px;
   }
 }
-
-/* container */
 
 /* typography */
 
@@ -76,7 +72,6 @@ p {
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
-  line-height: 1;
   &:hover {
     color: white;
     text-decoration: none;
@@ -88,7 +83,7 @@ p {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid $grayMediumLight;
+  border-top: 1px solid $gray-medium-light;
   color: $gray-light;
   a {
     color: $gray;
@@ -104,7 +99,7 @@ footer {
     list-style: none;
     li {
       float: left;
-      margin-left: 10px;
+      margin-left: 15px;
     }
   }
 }
@@ -193,18 +188,32 @@ input {
 }
 
 #error_explanation {
-  color: #f00;
+  color: red;
   ul {
-    list-style: none;
-    margin: 0 0 18px 0;
+    color: red;
+    margin: 0 0 30px 0;
   }
 }
 
 .field_with_errors {
-  @extend .control-group;
-  @extend .error;
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
 }
 
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
 /* users index */
 
 .users {
@@ -224,27 +233,46 @@ input {
 
 .microposts {
   list-style: none;
-  margin: 10px 0 0 0;
-
+  padding: 0;
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
   }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
 }
-.content {
-  display: block;
-}
-.timestamp {
-  color: $gray-light;
-}
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
+
 aside {
   textarea {
     height: 100px;
     margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
   }
 }
 

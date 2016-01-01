@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :microposts, dependent: :destroy
 
   validates :username, presence: true,
                      uniqueness: true,
@@ -19,6 +20,10 @@ class User < ActiveRecord::Base
     else
       where(conditions).first
     end
+  end
+
+  def feed
+    Micropost.where("user_id = ?", id)
   end
 
 end

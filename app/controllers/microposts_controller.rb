@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-  before_action :signed_in_user
+  before_action :authenticate_user!, only:[:create, :destroy]
   before_action :correct_user,   only: :destroy
 
   def create
@@ -15,13 +15,14 @@ class MicropostsController < ApplicationController
 
   def destroy
     @micropost.destroy
-    redirect_to root_url
+    flash[:success] = "Micropost deleted"
+    redirect_to request.referrer || root_url
   end
 
   private
 
     def micropost_params
-      params.require(:micropost).permit(:content)
+      params.require(:micropost).permit(:content, :picture)
     end
 
     def correct_user
