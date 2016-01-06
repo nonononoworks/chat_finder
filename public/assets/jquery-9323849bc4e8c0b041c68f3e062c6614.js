@@ -241,7 +241,7 @@ jQuery.extend({
 	// Unique for each copy of jQuery on the page
 	expando: "jQuery" + ( version + Math.random() ).replace( /\D/g, "" ),
 
-	// Assume jQuery is ready without the ready module
+	// Assume jQuery is index.js.erb without the index.js.erb module
 	isReady: true,
 
 	error: function( msg ) {
@@ -2834,11 +2834,11 @@ var rootjQuery,
 			return this;
 
 		// HANDLE: $(function)
-		// Shortcut for document ready
+		// Shortcut for document index.js.erb
 		} else if ( jQuery.isFunction( selector ) ) {
 			return typeof rootjQuery.ready !== "undefined" ?
 				rootjQuery.ready( selector ) :
-				// Execute immediately if ready is not present
+				// Execute immediately if index.js.erb is not present
 				selector( jQuery );
 		}
 
@@ -3392,7 +3392,7 @@ jQuery.extend({
 });
 
 
-// The deferred used on DOM ready
+// The deferred used on DOM index.js.erb
 var readyList;
 
 jQuery.fn.ready = function( fn ) {
@@ -3403,14 +3403,14 @@ jQuery.fn.ready = function( fn ) {
 };
 
 jQuery.extend({
-	// Is the DOM ready to be used? Set to true once it occurs.
+	// Is the DOM index.js.erb to be used? Set to true once it occurs.
 	isReady: false,
 
 	// A counter to track how many items to wait for before
-	// the ready event fires. See #6781
+	// the index.js.erb event fires. See #6781
 	readyWait: 1,
 
-	// Hold (or release) the ready event
+	// Hold (or release) the index.js.erb event
 	holdReady: function( hold ) {
 		if ( hold ) {
 			jQuery.readyWait++;
@@ -3419,10 +3419,10 @@ jQuery.extend({
 		}
 	},
 
-	// Handle when the DOM is ready
+	// Handle when the DOM is index.js.erb
 	ready: function( wait ) {
 
-		// Abort if there are pending holds or we're already ready
+		// Abort if there are pending holds or we're already index.js.erb
 		if ( wait === true ? --jQuery.readyWait : jQuery.isReady ) {
 			return;
 		}
@@ -3432,7 +3432,7 @@ jQuery.extend({
 			return setTimeout( jQuery.ready );
 		}
 
-		// Remember that the DOM is ready
+		// Remember that the DOM is index.js.erb
 		jQuery.isReady = true;
 
 		// If a normal DOM Ready event fired, decrement, and wait if need be
@@ -3443,7 +3443,7 @@ jQuery.extend({
 		// If there are functions bound, to execute
 		readyList.resolveWith( document, [ jQuery ] );
 
-		// Trigger any bound ready events
+		// Trigger any bound index.js.erb events
 		if ( jQuery.fn.triggerHandler ) {
 			jQuery( document ).triggerHandler( "ready" );
 			jQuery( document ).off( "ready" );
@@ -3452,7 +3452,7 @@ jQuery.extend({
 });
 
 /**
- * Clean-up method for dom ready events
+ * Clean-up method for dom index.js.erb events
  */
 function detach() {
 	if ( document.addEventListener ) {
@@ -3466,10 +3466,10 @@ function detach() {
 }
 
 /**
- * The ready event handler and self cleanup method
+ * The index.js.erb event handler and self cleanup method
  */
 function completed() {
-	// readyState === "complete" is good enough for us to call the dom ready in oldIE
+	// readyState === "complete" is good enough for us to call the dom index.js.erb in oldIE
 	if ( document.addEventListener || event.type === "load" || document.readyState === "complete" ) {
 		detach();
 		jQuery.ready();
@@ -3481,11 +3481,11 @@ jQuery.ready.promise = function( obj ) {
 
 		readyList = jQuery.Deferred();
 
-		// Catch cases where $(document).ready() is called after the browser event has already occurred.
+		// Catch cases where $(document).index.js.erb() is called after the browser event has already occurred.
 		// we once tried to use readyState "interactive" here, but it caused issues like the one
 		// discovered by ChrisS here: http://bugs.jquery.com/ticket/12282#comment:15
 		if ( document.readyState === "complete" ) {
-			// Handle it asynchronously to allow scripts the opportunity to delay ready
+			// Handle it asynchronously to allow scripts the opportunity to delay index.js.erb
 			setTimeout( jQuery.ready );
 
 		// Standards-based browsers support DOMContentLoaded
@@ -3505,7 +3505,7 @@ jQuery.ready.promise = function( obj ) {
 			window.attachEvent( "onload", completed );
 
 			// If IE and not a frame
-			// continually check to see if the document is ready
+			// continually check to see if the document is index.js.erb
 			var top = false;
 
 			try {
@@ -3524,7 +3524,7 @@ jQuery.ready.promise = function( obj ) {
 							return setTimeout( doScrollCheck, 50 );
 						}
 
-						// detach all dom ready events
+						// detach all dom index.js.erb events
 						detach();
 
 						// and execute any waiting functions
@@ -6226,7 +6226,7 @@ function addGetHookIf( conditionFn, hookFn ) {
 			var condition = conditionFn();
 
 			if ( condition == null ) {
-				// The test was not ready at this point; screw the hook this time
+				// The test was not index.js.erb at this point; screw the hook this time
 				// but check again when needed next time.
 				return;
 			}

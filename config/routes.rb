@@ -6,12 +6,14 @@ resources :users, :only => [:index, :show] do
     get :following, :followers
   end
 end
-
   resources :conversations do
     resources :messages
   end
 
   #resources :sessions, only: [:new, :create, :destroy]
+  match '/entry',    to: 'entries#matching',    via: 'get'
+  match '/entries',    to: 'entries#delete',    via: 'get'
+  resources :entries, only: [:create]
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :messages, only: [:index, :create]

@@ -1,39 +1,29 @@
+
+<script src="https://skyway.io/dist/0.3/peer.js"></script>
 <script>
-navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+  var yourApiKey = 'a31de8e2-acab-4b01-8fe0-9ac34ed2d325';
+  var peer = new Peer({key: yourApiKey});
+  console.log(peer);
 
-var myStream;
-var peer = new Peer({key: 'nra757eqn3njnhfr'});
+  peer.on('open', function(id) {
+    var anotherId = '接続先のPeerID';
+    console.log(peer.id);
+    console.log('anotherId' + anotherId);
+    console.log('Browser = ' + util.browser);
 
-var setOthersStream = function(stream){
-  $('#others-video').prop('src', URL.createObjectURL(stream));
-};
+    var conn = peer.connect(anotherId);
+    conn.on('open', function() {
+      console.log('-- open --');
 
-var setMyStream = function(stream){
-  myStream = stream;
-  $('#video').prop('src', URL.createObjectURL(stream));
-};
+      // メッセージを送信
+      conn.send('Hello!');
 
-peer.on('open', function(id){
-  $('#peer-id').text(id);
-});
-
-peer.on('call', function(call){
-  call.answer(myStream);
-  call.on('stream', setOthersStream);
-});
-
-$(function(){
-  navigator.getUserMedia({audio: true, video: true}, setMyStream, function(){});
-
-  $('#call').on('click', function(){
-    var call = peer.call($('#others-peer-id').val(), myStream);
-    call.on('stream', setOthersStream);
+      // メッセージを受信
+      conn.on('data', function(data) {
+        console.log('Received', data);
+      });
+    });
   });
-});
-
-peer.on('error', function(e){
-  console.log(e.message);
-});
 </script>
 
 <div>  <p>あなたのID : <span id="peer-id">qs5ymi96h0nt57b9</span></p>
@@ -43,4 +33,4 @@ peer.on('error', function(e){
 
   <video id="video" autoplay muted></video>
   <video id="others-video" autoplay></video>
-<div>
+</div>

@@ -1,0 +1,7 @@
+<p>matching done</p>
+<%= link_to "Yes", conversations_path(sender_id: @matching_from, recipient_id: @matching_to), remote:true, method: :get,
+            class: "btn btn-success btn-large start-conversation",
+            "data-sid" => @matching_from, "data-rid" => @matching_to %>
+<%= link_to "No", entries_path(username: @matching_from, matching_to: @matching_to), remote:true, method: :get,
+            data: { confirm: "You sure?" },
+            class: "btn btn-success btn-large start-conversation" %>

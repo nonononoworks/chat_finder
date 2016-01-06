@@ -1,0 +1,51 @@
+var push_event;
+var pusher;
+
+push_event = function(userid) {
+  var channel;
+  if (typeof(pusher) === "undefined") {
+    Pusher.log = function(message) {
+      if (window.console && window.console.log) {
+        window.console.log(message);
+      }
+    };
+    pusher = new Pusher('e7d1b74dd30352eddd81');
+
+    channel = pusher.subscribe(userid);
+    channel.bind('matching', function(data) {
+      $.get("/entry", {  matching_from: data.matching_to,
+                          matching_to: data.matching_from }, function (data) {
+
+      });
+    });
+    channel.bind('cancelled', function() {
+      $.ajax({
+        type: 'POST',
+        url: '/entries'
+//        data: data,
+//        dataType: 'script'
+      });
+    });
+    channel.bind('starting', function(data) {
+      if (data.event_type === "confirm") {
+        $(".start-conversation").attr("data-method", "post");
+        $(".start-conversation").data("method", "post");
+      }else{
+        alert("ajax start")
+        $.ajax({
+          type: 'POST',
+          url: '/conversations',
+          data: {
+            sender_id: data.recipient_id,
+            recipient_id: data.sender_id
+          },
+          error: function(err) {
+            alert(err+" did happen, please retry");
+          }
+        });
+      }
+    });
+  } else {
+    console.log("pusher already exists");
+  }
+};

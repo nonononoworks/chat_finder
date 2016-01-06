@@ -35,6 +35,7 @@ group :development, :test do
   # gems for debug
   gem 'ruby-debug-ide'
   gem 'debase'
+  gem 'meta_request'
 end
 
 group :test do

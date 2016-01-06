@@ -5,4 +5,6 @@
   <a>
   <%= link_to "Send Message", conversations_path(sender_id: current_user.id,recipient_id:user.id),method:"post", class: "btn btn-success btn-xs start-conversation" %>
   </a>
+  <% @user = user %>
+  <%= render 'follow_form' if user_signed_in? %>
 </li>

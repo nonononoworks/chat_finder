@@ -17,15 +17,10 @@
       </div>
     </div>
 <% else %>
-    <div class="center jumbotron">
-      <h1>Welcome to the Sample App</h1>
+    <div id="match_controller" class="center jumbotron">
+      <%= render 'shared/entry' %>
 
-      <h2>
-        This is the home page for the
-        sample application.
-      </h2>
-
-      <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+      <!--<div id="product-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>-->
     </div>
 
 <% end %>

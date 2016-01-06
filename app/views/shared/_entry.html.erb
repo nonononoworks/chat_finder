@@ -1,0 +1,17 @@
+<h1>Start Chat Now</h1>
+
+<h2>
+  click "Find" to start live chat
+</h2>
+
+<%= form_for(@entry,remote:true) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <!--<%= f.label :username %>-->
+    <!--<%= f.text_field :username %>-->
+
+    <%= f.label :sex, "Male" %><%= f.radio_button :sex, "M", checked: true %>
+    <%= f.label :sex, "Female" %><%= f.radio_button :sex, "F" %>
+
+    <%= f.submit "Find", class: "btn btn-large btn-primary" %>
+<% end %>

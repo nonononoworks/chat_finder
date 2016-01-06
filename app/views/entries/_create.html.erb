@@ -1,0 +1,5 @@
+<p>waiting</p>
+<p><%= @session_user %></p>
+<%= link_to "cancel", entries_path(username: @session_user), method: :get, remote:true,
+            data: { confirm: "You sure?" },
+            class: "btn btn-success btn-large start-conversation" %>
