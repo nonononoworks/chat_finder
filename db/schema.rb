@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104103957) do
+ActiveRecord::Schema.define(version: 20160106123843) do
 
   create_table "conversations", force: true do |t|
-    t.string   "sender_id"
-    t.string   "recipient_id"
+    t.integer  "sender_id",    limit: 255
+    t.integer  "recipient_id", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,8 +24,16 @@ ActiveRecord::Schema.define(version: 20160104103957) do
   add_index "conversations", ["sender_id"], name: "index_conversations_on_sender_id"
 
   create_table "entries", force: true do |t|
-    t.string   "username",   null: false
-    t.string   "sex",        null: false
+    t.string   "sex",                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "userid",     limit: 255, null: false
+  end
+
+  create_table "guests", force: true do |t|
+    t.string   "userid"
+    t.string   "username"
+    t.string   "sex"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

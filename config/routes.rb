@@ -7,13 +7,15 @@ resources :users, :only => [:index, :show] do
   end
 end
   resources :conversations do
-    resources :messages
+    resources :messages, :only => [:index, :create]
   end
 
   #resources :sessions, only: [:new, :create, :destroy]
+  match '/guests',   to: 'entries#create',    via: 'post'
   match '/entry',    to: 'entries#matching',    via: 'get'
   match '/entries',    to: 'entries#delete',    via: 'get'
-  resources :entries, only: [:create]
+  match '/entries',    to: 'entries#create',    via: 'post'
+  resources :guests, only: [:create]
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :messages, only: [:index, :create]

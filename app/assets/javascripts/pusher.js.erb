@@ -1,4 +1,4 @@
-var push_event;
+var push_event,chat_event;
 var pusher;
 
 push_event = function(userid) {
@@ -10,8 +10,7 @@ push_event = function(userid) {
       }
     };
     pusher = new Pusher('e7d1b74dd30352eddd81');
-
-    channel = pusher.subscribe(userid);
+    channel = pusher.subscribe('user_' + userid);
     channel.bind('matching', function(data) {
       $.get("/entry", {  matching_from: data.matching_to,
                           matching_to: data.matching_from }, function (data) {
@@ -30,14 +29,18 @@ push_event = function(userid) {
       if (data.event_type === "confirm") {
         $(".start-conversation").attr("data-method", "post");
         $(".start-conversation").data("method", "post");
+        $(".start-conversation").removeAttr('data-remote');
+        $(".start-conversation").removeData('remote');
       }else{
-        alert("ajax start")
+        alert("ajax start");
+        var url = '/conversations/' + data.room_id;
         $.ajax({
-          type: 'POST',
-          url: '/conversations',
+          type: 'GET',
+          url: url,
           data: {
             sender_id: data.recipient_id,
-            recipient_id: data.sender_id
+            recipient_id: data.sender_id,
+            your_id: data.recipient_id
           },
           error: function(err) {
             alert(err+" did happen, please retry");
@@ -49,3 +52,32 @@ push_event = function(userid) {
     console.log("pusher already exists");
   }
 };
+
+chat_event = function() {
+  if (typeof(pusher) === "undefined"){
+    var userid = $(".chatboxoptions").data("userid");
+    Pusher.log = function(message) {
+      if (window.console && window.console.log) {
+        window.console.log(message);
+      }
+    };
+
+    if (userid) {
+      var channel;
+      pusher = new Pusher('e7d1b74dd30352eddd81');
+      channel = pusher.subscribe('user_' + userid);
+      channel.bind('chat_event', function (data) {
+        var path,sender_id,recipient_id;
+        path = '/conversations/' + data.message.conversation_id + '/messages';
+        sender_id = data.message.user_id;
+        recipient_id = $(".chatboxoptions").data("userid");
+        $.get(path, { message: data.message, your_id: userid }, function(data) {
+
+        });
+      });
+    }
+  }
+};
+$('.conversations').ready(function () {
+  chat_event();
+});

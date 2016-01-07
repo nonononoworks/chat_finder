@@ -115,6 +115,7 @@
     <orderEntry type="library" scope="PROVIDED" name="bootstrap-will_paginate (v0.0.9, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.2, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.11.2, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="callsite (v0.0.11, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capybara (v2.1.0, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="carrierwave (v0.10.0, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="childprocess (v0.5.8, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
@@ -135,6 +136,7 @@
     <orderEntry type="library" scope="PROVIDED" name="faker (v1.1.2, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faye-websocket (v0.10.2, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.9.10, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="git-version-bump (v0.15.1, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hike (v1.2.3, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hiredis (v0.6.1, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="httpclient (v2.7.0.1, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
@@ -145,6 +147,7 @@
     <orderEntry type="library" scope="PROVIDED" name="kaminari (v0.16.3, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="libv8 (v3.16.14.13, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.5.4, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="meta_request (v0.3.4, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types (v1.25.1, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_magick (v3.8.0, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_portile2 (v2.0.0, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
@@ -157,6 +160,7 @@
     <orderEntry type="library" scope="PROVIDED" name="pusher (v0.15.2, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pusher-signature (v0.1.8, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v1.5.5, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-contrib (v1.4.0, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v0.6.3, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails (v4.1.0, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails_12factor (v0.0.3, Remote:ruby-2.2.2-p95 (1)) [gem]" level="application" />

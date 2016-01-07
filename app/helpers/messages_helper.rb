@@ -1,6 +1,6 @@
 module MessagesHelper
   def self_or_other(message)
-    message.user == current_user ? "self" : "other"
+    message.user_id == @your_id ? "self" : "other"
   end
  
   def message_interlocutor(message)

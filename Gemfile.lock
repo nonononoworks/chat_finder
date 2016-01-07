@@ -88,6 +88,8 @@ GEM
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.5.1)
     ffi (1.9.10)
+    font-awesome-rails (4.5.0.0)
+      railties (>= 3.2, < 5.0)
     git-version-bump (0.15.1)
     hike (1.2.3)
     hiredis (0.6.1)
@@ -257,6 +259,7 @@ DEPENDENCIES
   devise
   factory_girl_rails (= 4.2.1)
   faker (= 1.1.2)
+  font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
   kaminari

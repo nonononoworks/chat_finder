@@ -14,7 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require_tree .
+//= require jquery.readyselector
 //= require websocket_rails/main
 //= require pusher.js.erb
+//= require_tree .
 

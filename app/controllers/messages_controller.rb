@@ -1,24 +1,28 @@
 class MessagesController < ApplicationController
 
   def create
+    @conv_id = params[:conversation_id]
     @conversation = Conversation.find(params[:conversation_id])
     @message = @conversation.messages.build(message_params)
-    @message.user_id = session[:matching_id]
+    @your_id = params[:your_id].to_i
+    @message.user_id = @your_id
 
     if @message.save
-      if @conversation.recipient_id == session[:matching_id] then
+      if @conversation.recipient_id.to_s == @your_id.to_s then
         channel = @conversation.sender_id
       else
         channel = @conversation.recipient_id
       end
       @path = conversation_path(@conversation)
-      Pusher[channel].trigger('conversation', {
+      response = Pusher.get('/channels/' + channel.to_s)
+      Pusher['user_' + channel.to_s].trigger('chat_event', {
       	message: @message
       })
     end
   end
 
   def index
+    @your_id = params[:your_id]
     @conversation = Conversation.find(params[:conversation_id])
     @message = Message.find(params[:message]["id"])
     render "create"

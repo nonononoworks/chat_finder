@@ -5,7 +5,7 @@ class ConversationsController < ApplicationController
     receipient_id = params[:recipient_id]
     @receipient_id = receipient_id
 
-    Pusher[params[:recipient_id]].trigger('starting', {
+    Pusher['user_' + params[:recipient_id]].trigger('starting', {
         event_type: "confirm"
     })
   end
@@ -15,25 +15,32 @@ class ConversationsController < ApplicationController
       @conversation = Conversation.between(params[:sender_id],params[:recipient_id]).first
     else
       @conversation = Conversation.create!(conversation_params)
-      Pusher[params[:recipient_id]].trigger('starting', {
-          event_type: "starting",
-          sender_id: params[:sender_id],
-          recipient_id: params[:recipient_id]
-      })
     end
+    Pusher['user_' + params[:recipient_id]].trigger('starting', {
+        event_type: "starting",
+        room_id: @conversation.id,
+        sender_id: params[:sender_id],
+        recipient_id: params[:recipient_id]
+    })
+    #Delete Entry
+    Entry.find_by(userid: [ params[:sender_id],params[:recipient_id] ]).destroy
     @reciever = interlocutor(@conversation)
     @messages = @conversation.messages
     @message = Message.new
-    conversation_id = @conversation.id.to_s
-    url = '/conversations/' + conversation_id
-    render js: %(window.location = '#{url}') and return
+    redirect_to :action => "show", :id => @conversation.id, :your_id => params[:sender_id]
   end
  
   def show
+    @your_id = params[:your_id]
     @conversation = Conversation.find(params[:id])
     @reciever = interlocutor(@conversation)
     @messages = @conversation.messages
     @message = Message.new
+    url = '/conversations/' + params[:id] + "?your_id=" + @your_id
+    respond_to do |format|
+      format.js {render js: %(window.location = '#{url}') and return}
+      format.html
+    end
   end
  
   private
@@ -42,6 +49,6 @@ class ConversationsController < ApplicationController
   end
  
   def interlocutor(conversation)
-    session[:matching_id] == conversation.recipient ? conversation.sender : conversation.recipient
+    Guest.find_by(userid: session[:matching_id]).id == conversation.recipient_id ? conversation.sender_id : conversation.recipient_id
   end
 end
