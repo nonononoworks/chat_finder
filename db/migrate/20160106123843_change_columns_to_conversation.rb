@@ -1,7 +1,7 @@
 class ChangeColumnsToConversation < ActiveRecord::Migration
   def up
-    change_column :conversations, :sender_id, 'sender_id USING CAST(userid AS integer)'
-    change_column :conversations, :recipient_id, 'recipient_id USING CAST(userid AS integer)'
+    change_column :conversations, :sender_id, :integer
+    change_column :conversations, :recipient_id, :integer
   end
 
   #変更前の型

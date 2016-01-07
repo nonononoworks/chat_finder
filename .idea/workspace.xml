@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d494c5e6-f24a-482d-9189-b35956a9395b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20160106114531_change_userid_to_entry.rb" afterPath="$PROJECT_DIR$/db/migrate/20160106114531_change_userid_to_entry.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20160106123843_change_columns_to_conversation.rb" afterPath="$PROJECT_DIR$/db/migrate/20160106123843_change_columns_to_conversation.rb" />
     </list>
     <ignored path="chat.iws" />
@@ -71,21 +69,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20160106123843_change_columns_to_conversation.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="20160106123843_change_columns_to_conversation.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/migrate/20160106123843_change_columns_to_conversation.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.26275116">
-              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3" column="57" selection-start-line="3" selection-start-column="57" selection-end-line="3" selection-end-column="57" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20160106114531_change_userid_to_entry.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="20160106114531_change_userid_to_entry.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/migrate/20160106114531_change_userid_to_entry.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="76" />
+            <state vertical-scroll-proportion="0.05255023">
+              <caret line="2" column="76" selection-start-line="2" selection-start-column="76" selection-end-line="2" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -1242,18 +1240,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160106114531_change_userid_to_entry.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160106123843_change_columns_to_conversation.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="76" />
+          <caret line="3" column="57" selection-start-line="3" selection-start-column="57" selection-end-line="3" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20160106123843_change_columns_to_conversation.rb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20160106114531_change_userid_to_entry.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26275116">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.05255023">
+          <caret line="2" column="76" selection-start-line="2" selection-start-column="76" selection-end-line="2" selection-end-column="76" />
           <folding />
         </state>
       </provider>
