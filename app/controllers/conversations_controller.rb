@@ -1,33 +1,28 @@
 class ConversationsController < ApplicationController
 
   def index
-    sender_id = params[:sender_id]
-    receipient_id = params[:recipient_id]
-    @receipient_id = receipient_id
+    @your_id = params[:sender_id]
+    @conversation = Conversation.new
+    @messages = @conversation.messages
+  end
 
-    Pusher['user_' + params[:recipient_id]].trigger('starting', {
-        event_type: "confirm"
-    })
+  def ready
+    @conversation = Conversation.find_by(id: params[:id])
+    if @conversation.waiting?
+      @conversation.ready!
+    end
+    render :nothing => true
   end
 
   def create
-    if Conversation.between(params[:sender_id],params[:recipient_id]).present?
-      @conversation = Conversation.between(params[:sender_id],params[:recipient_id]).first
-    else
-      @conversation = Conversation.create!(conversation_params)
-    end
-    Pusher['user_' + params[:recipient_id]].trigger('starting', {
-        event_type: "starting",
-        room_id: @conversation.id,
-        sender_id: params[:sender_id],
-        recipient_id: params[:recipient_id]
-    })
-    #Delete Entry
-    Entry.find_by(userid: [ params[:sender_id],params[:recipient_id] ]).destroy
-    @reciever = interlocutor(@conversation)
-    @messages = @conversation.messages
-    @message = Message.new
-    redirect_to :action => "show", :id => @conversation.id, :your_id => params[:sender_id]
+    #Guest作成
+    user = current_or_guest_user
+    @matching_id = user.id.to_s
+    # response = Pusher.get('/channels/' + 'user_' + guest.id.to_s)
+    # if response[:occupied]
+    #   Pusher['user_' + guest.id.to_s].trigger('cancelled', { })
+    # end
+    challenge_response(user)
   end
  
   def show
@@ -36,19 +31,61 @@ class ConversationsController < ApplicationController
     @reciever = interlocutor(@conversation)
     @messages = @conversation.messages
     @message = Message.new
-    url = '/conversations/' + params[:id] + "?your_id=" + @your_id
     respond_to do |format|
-      format.js {render js: %(window.location = '#{url}') and return}
+      format.js
       format.html
     end
   end
  
   private
+  def guest_params
+    params.require(:guest).permit(:username, :sex)
+  end
+  def challenge_response(user)
+    #search_sex = guest.sex === "M" ? "F" : "M"
+    border_time = Time.zone.now - 10
+    @conversation = Conversation.where("recipient_id IS ? AND status = 1",nil).first
+
+    if @conversation.nil? then
+      # create conversation
+      old_conversation = Conversation.where("sender_id = ? AND recipient_id IS ? AND status = 0",user.id,nil).first
+      if old_conversation
+        old_conversation.destroy
+        challenge_response(user)
+      else
+        @conversation = Conversation.create!(sender_id: user.id,recipient_id: nil, status: 0)
+        redirect_to conversation_path(:id => @conversation.id, :your_id => user.id) and return
+      end
+    else
+      waiting_user = User.find_by(id: @conversation.sender_id)
+      if waiting_user.id === user.id
+        @conversation.destroy
+      else
+        response = Pusher.get('/channels/' + 'chat_' + waiting_user.id.to_s)
+        event_waiting = response[:occupied]
+        if event_waiting
+          # join
+          Pusher['chat_' + @conversation.sender_id.to_s].trigger('starting', {
+              room_id: @conversation.id,
+              your_id: guest.id
+          })
+          @conversation.update(recipient_id:user.id,status: 2)
+          redirect_to :controller=>"conversations", :action => "show",
+                      :id => @conversation.id, :your_id => user.id and return
+        else
+          @conversation.destroy
+          waiting_user.destroy
+        end
+      end
+      challenge_response(guest)
+    end
+  end
+
   def conversation_params
     params.permit(:sender_id, :recipient_id)
   end
  
   def interlocutor(conversation)
-    Guest.find_by(userid: session[:matching_id]).id == conversation.recipient_id ? conversation.sender_id : conversation.recipient_id
+    Guest.find_by(userid: session[:session_id]).id == conversation.recipient_id ? conversation.sender_id : conversation.recipient_id
   end
 end

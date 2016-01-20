@@ -1860,7 +1860,7 @@ util.inherits(DataConnection, EventEmitter);
 
 DataConnection._idPrefix = 'dc_';
 
-/** Called by the Negotiator when the DataChannel is index.js.erb. */
+/** Called by the Negotiator when the DataChannel is index.html.erb. */
 DataConnection.prototype.initialize = function(dc) {
   this._dc = this.dataChannel = dc;
   this._configureDataChannel();

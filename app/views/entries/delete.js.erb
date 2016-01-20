@@ -1,2 +1,2 @@
 $("#match_controller").html("<%= escape_javascript(render 'shared/entry') %>")
-delete pusher
+unsubscribe_pusher(<%= @userid %>)

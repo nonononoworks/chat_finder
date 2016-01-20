@@ -8,9 +8,7 @@ class User < ActiveRecord::Base
            dependent:   :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships
-  validates :username, presence: true,
-                     uniqueness: true,
-                     length: { maximum: 50 }
+  validates :email, presence: true, uniqueness: true, length: { maximum: 50 }
   # 認証条件変更
   attr_accessor   :login
   # Include default devise modules. Others available are:
@@ -49,6 +47,18 @@ class User < ActiveRecord::Base
   # 現在のユーザーがフォローしてたらtrueを返す
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def self.new_guest
+    new do |u|
+      u.username = "Guest"
+      u.email    = "guest_#{Time.now.to_i}#{rand(100)}@example.com"
+      u.guest    = true
+    end
+  end
+
+  def move_to(user)
+    tasks.update_all(user_id: user.id)
   end
 
 end

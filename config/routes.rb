@@ -1,20 +1,19 @@
 Rails.application.routes.draw do
 
-devise_for :users, :controllers => { :sessions => 'users/sessions'}
+devise_for :users, :controllers => { :sessions => 'users/sessions', registrations: "registrations"}
 resources :users, :only => [:index, :show] do
   member do
     get :following, :followers
   end
 end
   resources :conversations do
+    member do
+      get 'ready'
+    end
     resources :messages, :only => [:index, :create]
   end
 
   #resources :sessions, only: [:new, :create, :destroy]
-  match '/guests',   to: 'entries#create',    via: 'post'
-  match '/entry',    to: 'entries#matching',    via: 'get'
-  match '/entries',    to: 'entries#delete',    via: 'get'
-  match '/entries',    to: 'entries#create',    via: 'post'
   resources :guests, only: [:create]
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]

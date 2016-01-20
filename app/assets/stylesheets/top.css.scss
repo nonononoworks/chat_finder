@@ -1,0 +1,139 @@
+
+.static_pages{
+  .content {
+    min-height: 250px;
+    margin: 0 auto;
+    padding-bottom: 2em;
+    width: 80%;
+  }
+
+  .content--tiny {
+    max-width: 800px;
+  }
+
+  .container {
+    text-align: center;
+    padding: 5.25em 0.5em 0;
+  }
+
+  /* Header */
+  .codrops-header {
+    padding: 0;
+    letter-spacing: -1px;
+  }
+
+  .codrops-header h1 {
+    font-weight: 800;
+    font-size: 3.5em;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .codrops-header h1 span {
+    display: block;
+    font-size: 35%;
+    letter-spacing: 1px;
+    padding-top: 0.75em;
+    color: #afb3b8;
+  }
+
+  /* To Navigation Style */
+  .codrops-links {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 1.25em;
+  }
+
+  .codrops-links a {
+    display: inline-block;
+    padding: 0.5em 0;
+    margin: 0.5em;
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+
+  .codrops-icon span {
+    display: none;
+  }
+
+  .codrops-icon:before {
+    margin: 0 4px;
+    text-transform: none;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-family: 'codropsicons';
+    line-height: 1;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .codrops-icon-drop:before {
+    content: "\e001";
+  }
+
+  .codrops-icon-prev:before {
+    content: "\e004";
+  }
+
+  /* Codrops demo links */
+  .codrops-demos {
+    margin: 3em auto;
+    max-width: 700px;
+  }
+
+  .codrops-demos a {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.25em 0;
+    margin: 5px 10px;
+    display: inline-block;
+    font-size: 0.85em;
+  }
+
+  .codrops-demos a.current-demo {
+    opacity: 0.5;
+  }
+
+  /* Related demos */
+  .related {
+    text-align: center;
+    padding: 10em 0;
+    clear: both;
+    font-weight: bold;
+  }
+
+  .related > a {
+    width: 200px;
+    display: inline-block;
+    text-align: center;
+    margin: 1em;
+    font-size: 0.8em;
+    vertical-align: top;
+  }
+
+  .related a img {
+    max-width: 100%;
+    opacity: 0.8;
+  }
+
+  .related a:hover img,
+  .related a:active img {
+    opacity: 1;
+  }
+
+  .related a h3 {
+    margin: 0;
+    padding: 0.5em 0 0.3em;
+    max-width: 200px;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 30em) {
+    .codrops-header h1 {
+      font-size: 3em;
+    }
+  }
+}
+

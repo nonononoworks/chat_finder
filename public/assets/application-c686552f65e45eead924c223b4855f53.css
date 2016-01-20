@@ -3,7 +3,7 @@
  * CREDITS: http://css-tricks.com/replicating-google-hangouts-chat/
  *
  */
-/* line 8, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 8, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatbox {
   position: fixed;
   position: expression("absolute");
@@ -11,7 +11,7 @@
   display: none;
 }
 
-/* line 15, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 15, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxhead {
   background: #666;
   color: white;
@@ -21,21 +21,21 @@
   border-left: 1px solid rgba(85, 85, 85, 0.87);
 }
 
-/* line 25, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 25, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxhead h1 {
   display: inline;
   font-size: 17px;
   font-weight: 700;
 }
 
-/* line 31, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 31, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxblink {
   background-color: #176689;
   border-right: 1px solid #176689;
   border-left: 1px solid #176689;
 }
 
-/* line 37, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 37, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxcontent {
   font-family: arial, sans-serif;
   overflow-y: auto;
@@ -48,26 +48,26 @@
   list-style: none;
 }
 
-/* line 49, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 49, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxcontent li {
   padding: 1rem;
   overflow: hidden;
   display: flex;
 }
 
-/* line 55, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 55, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxcontent .avatar {
   width: 40px;
   position: relative;
 }
 
-/* line 60, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 60, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxcontent .avatar img {
   display: block;
   width: 100%;
 }
 
-/* line 65, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 65, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .other .avatar:after {
   content: "";
   position: absolute;
@@ -80,24 +80,24 @@
   border-bottom-color: transparent;
 }
 
-/* line 77, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 77, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .self {
   justify-content: flex-end;
   align-items: flex-end;
 }
 
-/* line 82, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 82, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .self .chatboxmessagecontent {
   order: 1;
   border-bottom-right-radius: 0;
 }
 
-/* line 87, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 87, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .self .avatar {
   order: 2;
 }
 
-/* line 91, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 91, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .self .avatar:after {
   content: "";
   position: absolute;
@@ -111,7 +111,7 @@
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* line 104, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 104, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxmessagecontent {
   background: white;
   padding: 10px;
@@ -119,7 +119,7 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* line 111, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 111, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxmessagecontent p {
   font-size: 12px;
   margin: 0 0 0.2rem 0;
@@ -131,13 +131,13 @@
   hyphens: auto;
 }
 
-/* line 124, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 124, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxmessagecontent time {
   font-size: 9px;
   color: #ccc;
 }
 
-/* line 129, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 129, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxinput {
   padding: 5px;
   background-color: #ffffff;
@@ -146,7 +146,7 @@
   border-bottom: 1px solid #cccccc;
 }
 
-/* line 137, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 137, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxtextarea {
   height: 100px;
   padding: 3px 0pt 3px 3px;
@@ -156,36 +156,36 @@
   resize: none !important;
 }
 
-/* line 146, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 146, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxtextareaselected {
   border: 2px solid #878787;
   margin: 0;
 }
 
-/* line 151, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 151, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxmessage {
   margin-left: 1em;
 }
 
-/* line 155, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 155, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxinfo {
   margin-left: -1em;
   color: #666666;
 }
 
-/* line 161, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 161, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxoptions {
   float: right;
 }
 
-/* line 165, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 165, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxoptions a {
   text-decoration: none;
   color: white;
   font-weight: bold;
 }
 
-/* line 171, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss */
+/* line 171, /home/vagrant/rails_app/chat/app/assets/stylesheets/chat.css.scss.scss */
 .chatboxtitle {
   float: left;
 }
